@@ -1,0 +1,93 @@
+// What does the following code return/print?
+
+// let facts = {numPlanets: 8, yearNeptuneDiscovered: 1846};
+// let {numPlanets, yearNeptuneDiscovered} = facts;
+
+// console.log(numPlanets); // 8
+// console.log(yearNeptuneDiscovered); // 1846
+
+//what does the following code return/print?
+let planetFacts = {
+    numPlanets: 8,
+    yearNeptuneDiscovered: 1846,
+    yearMarsDiscovered: 1659
+  };
+  
+  let {numPlanets, ...discoveryYears} = planetFacts;
+  
+  console.log(discoveryYears); //{yearNeptuneDiscovered: 1846, yearMarsDiscovered: 1659}
+
+//what does the following code return/print?
+  function getUserData({firstName, favoriteColor="green"}){
+    return `Your name is ${firstName} and you like ${favoriteColor}`;
+  }
+  
+  console.log(getUserData({firstName: "Alejandro", favoriteColor: "purple"})) // 'your name is alejandro and you like purple
+  console.log(getUserData({firstName: "Melissa"})) // your name is melissa and you like green
+  console.log(getUserData({})) // your name is undefined and you like green
+
+// What does the following code return/print?
+ let [first, second, third] = ["Maya", "Marisa", "Chi"];
+
+console.log(first); // Maya
+console.log(second); // Marisa
+console.log(third); // Chi
+
+// What does the following code return/print?
+ let [raindrops, whiskers, ...aFewOfMyFavoriteThings] = [
+    "Raindrops on roses",
+    "whiskers on kittens",
+    "Bright copper kettles",
+    "warm woolen mittens",
+    "Brown paper packages tied up with strings"
+  ]
+  
+  console.log(raindrops); // Raindrops on roses
+  console.log(whiskers); // whiskers on kittens
+  console.log(aFewOfMyFavoriteThings); // [bright copper kettles, warm woolen mittens, brown paper packages tied up with strings]
+
+  // What does the following code return/print?
+   let numbers = [10, 20, 30];
+[numbers[1], numbers[2]] = [numbers[2], numbers[1]]
+
+console.log(numbers) // [10,30,20]
+
+//Write an ES2015 Version
+
+// var obj = {
+//     numbers: {
+//       a: 1,
+//       b: 2
+//     }
+//   };
+  
+//   var a = obj.numbers.a;
+//   var b = obj.numbers.b;
+
+  let obj = {
+    numbers: {
+        a:1,
+        b:2
+    }
+  }
+
+  const {numbers: {a,b}} = obj
+
+//Write an ES2015 Version
+// var arr = [1, 2];
+// var temp = arr[0];
+// arr[0] = arr[1];
+// arr[1] = temp;
+let arr = [1,2]
+
+[1,2] = [2,1]
+
+console.log(arr)
+
+//raceResults
+
+const raceResults = ([first, second, third, ...rest]) => {return {first,second,third,rest}}
+
+console.log(raceResults['Tom', 'Margaret', 'Allison', 'David', 'Pierre'])
+
+//i wrote this function before checking the solutions and did not edit it after viewing but for some reason when i console.log i get undefined. I'm not sure what I may be missing. 
